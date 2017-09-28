@@ -16,7 +16,7 @@ class Square extends Component {
   render(){
     return(
       <button className="button" onClick={this.handleClick.bind(this)} >
-        {this.props.selectedPositions[this.props.id]}
+        {this.props.selectedPositions[this.props.id]} 
       </button>
     )
   }

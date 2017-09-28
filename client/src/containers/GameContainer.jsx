@@ -58,22 +58,22 @@ class GameContainer extends Component {
   }
 
   checkForWin(data) {
-    for (var i = 0; i < this.state.winningCombos.length; i++) {
-      var index1 = this.state.winningCombos[i][0];
-      var index2 = this.state.winningCombos[i][1];
-      var index3 = this.state.winningCombos[i][2];
-      if(data[index1] === null || data[index2] === null || data[index3] === null){   
-      } else if
-        (data[index1] === data[index2] && data[index1] === data[index3]){
-        this.confirmWin({ player: "Player", turn: this.state.turn, result: "wins!" });
-      } else if
-        (this.state.selectedPositions.includes(null) != true && (data[index1] != data[index2] || data[index1] != data[index3])){
-        this.confirmWin({ player: "It's a DRAW!!", result: "", turn: ""});         
-      }else if
-      (data[index1] != data[index2] || data[index1] != data[index3]) {          
-      } 
+      for (var i = 0; i < this.state.winningCombos.length; i++) {
+        var index1 = this.state.winningCombos[i][0];
+        var index2 = this.state.winningCombos[i][1];
+        var index3 = this.state.winningCombos[i][2];
+        if(data[index1] === null || data[index2] === null || data[index3] === null){   
+        } else if
+          (data[index1] === data[index2] && data[index1] === data[index3]){
+          this.confirmWin({ player: "Player", turn: this.state.turn, result: "wins!" });
+        } else if
+          (this.state.selectedPositions.includes(null) != true && (data[index1] != data[index2] || data[index1] != data[index3])){
+          this.confirmWin({ player: "It's a DRAW!!", result: "", turn: ""});         
+        }else if
+        (data[index1] != data[index2] || data[index1] != data[index3]) {          
+        } 
+      }
     }
-  }
 
   render() {
     return (
@@ -82,9 +82,8 @@ class GameContainer extends Component {
         <br/>
         <p className="status">{this.state.player}  {this.state.turn}  {this.state.result}</p>
         <br/>
-        <br/>
         <Board className="board" playerPlayed={this.playerPlayed.bind(this)} selectedPositions={this.state.selectedPositions}/>
-        <br/><br/><br/>
+        <br/>
         <button className="reset" onClick={this.reset.bind(this)}>Reset Game</button>
       </section>
     )
